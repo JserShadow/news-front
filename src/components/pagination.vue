@@ -1,6 +1,7 @@
 <template>
   <div class="block">
-    
+    <h3>校内资讯 <span class="pro">PRO</span> </h3>
+    <el-button type="primary" icon="el-icon-search" class="search-btn"></el-button>
     <div class="under-blur"></div>
     <ul class="news-list"> 
       <li v-for="item in 15" :key="item" class="list-item"><div>{{item}}</div><div>time</div></li>
@@ -42,6 +43,25 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+h3 {
+  font-weight: normal;
+  font-size: 2.5rem;
+  margin-top: 10px;
+  text-align: left;
+  margin-left: 10vw;
+  color: #aaaaaa;
+}
+.pro {
+  font-size: 14px;
+  color: rgb(255, 169, 71);
+  font-weight: normal;
+  font-style: italic;
+}
+.search-btn {
+  position: absolute;
+  top: 3vh;
+  right: 10vw;
 }
 .pagination {
   position: absolute;
@@ -86,7 +106,7 @@ export default {
   top: 45%;
   transform: translate(-50%, -45%);
   list-style: none;
-  background-image: linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%);
+  background-image: linear-gradient(110deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
   padding: 10px;
 }
 .list-item {
