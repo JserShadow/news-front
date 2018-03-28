@@ -7,8 +7,14 @@
     </div>
     <div class="contents-container">
       <h3 class="detail-title">this is a title</h3>
-      <p v-for="item in 40" :key="item" class="detail-content">item</p>
+      <!-- <div class="underground-position">
+        <div v-for="itema in 40" :key="itema" class="paper-underground"></div>
+      </div> -->
+      <div class="content-position">
+        <p v-for="item in 40" :key="item" class="detail-content">itemsldkajfl;asdfljalsjflsdaslkdfjsafksajdklsjadfjsaldfjlaksdjflasjdlaf</p>
+      </div>
     </div>
+    <img src="../assets/jser_logo.svg" alt="jser_logo" class="jser-logo jser-logo-detail">
   </div>
 </template>
 
