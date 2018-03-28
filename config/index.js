@@ -10,7 +10,20 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/jwc/*': {
+        target: 'http://localhost:7001',
+        changeOrigin: true
+      },
+      '/neau/*': {
+        target: 'http://localhost:7001',
+        changeOrigin: true
+      },
+      '/getdetail': {
+        target: 'http://localhost:7001',
+        changeOrigin: true
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

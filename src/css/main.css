@@ -102,6 +102,14 @@ h5 {
   justify-content: space-between;
   border-bottom: 1px dotted #aaa;
 }
+.item-title {
+  width: 50vw;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+}
 .under-blur {
   width: 80vw;
   height: 70vh;

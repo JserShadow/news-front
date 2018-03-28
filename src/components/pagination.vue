@@ -12,7 +12,10 @@
     </transition>
     <div class="under-blur"></div>
     <ul class="news-list"> 
-      <li v-for="item in 15" :key="item" class="list-item"><div>{{item}}</div><div>time</div></li>
+      <li v-for="item in dataForCurrentPage" :key="item.url" class="list-item">
+        <div class="item-title">{{item.title}}</div>
+        <div>{{item.createTime}}</div>
+      </li>
     </ul>
     <el-pagination
       @size-change="handleSizeChange"
@@ -29,7 +32,7 @@
 
 <script>
 import animate from 'animate.css';
-
+import axios from 'axios';
 export default {
   name: 'Pagination',
   data() {
@@ -39,6 +42,7 @@ export default {
       input: '',
       insideBtn: false,
       outsideBtn: true,
+      dataForCurrentPage: ''
     }
   },
   methods: {
@@ -46,7 +50,7 @@ export default {
 
     },
     handleCurrentChange() {
-
+      console.log(this.currentPage4);
     },
     showSearchModel() {
       this.outsideBtn = false;
@@ -56,6 +60,10 @@ export default {
       this.insideBtn = false;
       this.outsideBtn = true
     }
+  },
+  async mounted() {
+    const ajaxData = await axios.get('/neau/news?page=' + this.currentPage4)
+    this.dataForCurrentPage = ajaxData.data;
   }
 }
 </script>
