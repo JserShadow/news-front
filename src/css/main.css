@@ -7,7 +7,7 @@ h3 {
   font-size: 2.5rem;
   margin-top: 10px;
   text-align: left;
-  margin-left: 10vw;
+  margin-left: 8vw;
   color: #aaaaaa;
 }
 h5 {
@@ -39,12 +39,18 @@ h5 {
   padding: 12px;
   border-radius: 0;
 }
+.select {
+  position: absolute;
+  top: 3vh;
+  right: 18vw;
+  width: 28vw;
+}
 .outside-search-btn {
   padding: 12px;
   border-radius: 50%;
   position: absolute;
   top: 3vh;
-  right: 10vw;
+  right: 5vw;
 }
 .pagination {
   position: absolute;
