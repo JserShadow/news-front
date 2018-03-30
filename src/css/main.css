@@ -70,6 +70,9 @@ h5 {
 .el-pagination .btn-next, .el-pagination .btn-prev {
   background: 0 0;
 }
+.el-select-dropdown__wrap {
+  max-height: 400px;
+}
 .el-pagination button.disabled {
   background: 0 0;
 }

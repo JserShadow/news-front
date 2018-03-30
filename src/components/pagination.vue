@@ -3,7 +3,7 @@
     <h3>校内资讯 
       <!-- <span class="pro">PRO</span>  -->
     </h3>
-    <el-select v-model="selector" placeholder="请选择" class="select">
+    <el-select v-model="selector" placeholder="请选择" class="select" @change="changeOption">
       <el-option-group
         v-for="group in options3"
         :key="group.label"
@@ -33,9 +33,8 @@
       </li>
     </ul>
     <el-pagination
-      @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
-      :current-page="currentPage4"
+      :current-page.sync="currentPage4"
       :page-size="15"
       layout="prev, pager, next"
       :total="totalNews"
@@ -58,28 +57,29 @@ export default {
       insideBtn: false,
       outsideBtn: true,
       dataForCurrentPage: '',
+      selectorIndex: 0,
       options3: [{
           label: '教务资讯',
           options: [{
-            value: 'jwc-news',
+            value: '/jwc/news',
             label: '教务新闻'
           }, {
-            value: 'jwc-notice',
+            value: '/jwc/notices',
             label: '教务通知'
           }, {
-            value: 'jwc-exam',
+            value: '/jwc/exam',
             label: '考务通知'
           }]
         }, {
           label: '官网资讯',
           options: [{
-            value: 'neau-news',
+            value: '/neau/news',
             label: '东农资讯'
           }, {
-            value: 'neau-notice',
+            value: '/neau/notices',
             label: '通知公告'
           }, {
-            value: 'neau-enrol',
+            value: '/neau/enrollment',
             label: '招生动态'
           }]
         }],
@@ -87,11 +87,8 @@ export default {
     }
   },
   methods: {
-    handleSizeChange() {
-
-    },
-    handleCurrentChange() {
-      console.log(this.currentPage4);
+    handleCurrentChange(current) {
+      
     },
     showSearchModel() {
       this.outsideBtn = false;
@@ -100,11 +97,22 @@ export default {
     searchBegin() {
       this.insideBtn = false;
       this.outsideBtn = true
+    },
+    async changeOption(value) {
+      this.currentPage4 = 1;
+      const data = await axios.get(`${value}?page=1`);
+      this.dataForCurrentPage = data.data.list;
+      this.totalNews = data.data.number;
     }
   },
   async mounted() {
-    const ajaxData = await axios.get('/neau/news?page=' + this.currentPage4)
-    this.dataForCurrentPage = ajaxData.data;
+    if (this.$store.currentSelector) {
+      this.currentPage4 = this.$store.CURRENT_PAGE();
+    }
+    this.selector = this.options3[0].options[0].label;
+    const ajaxData = await axios.get(`/jwc/news?page=${this.currentPage4}`);
+    this.dataForCurrentPage = ajaxData.data.list;
+    this.totalNews = ajaxData.data.number;
   }
 }
 </script>
