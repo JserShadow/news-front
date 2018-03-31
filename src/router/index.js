@@ -12,7 +12,7 @@ export default new Router({
       component: Pagination,
     },
     {
-      path: '/detail',
+      path: '/detail/:class/:id',
       name: 'Detail',
       component: Detail
     }

@@ -26,18 +26,20 @@
       <el-button type="primary" icon="el-icon-search" class="outside-search-btn" @click.native="showSearchModel" v-show="outsideBtn"></el-button>
     </transition>
     <div class="under-blur"></div>
-    <ul class="news-list"> 
-      <li v-for="item in dataForCurrentPage" :key="item.url" class="list-item">
+    <ul class="news-list" v-loading="loadData"> 
+      <li v-for="(item, index) in dataForCurrentPage" :key="item.url" class="list-item" @click="jumpToDetail(index)">
         <div class="item-title">{{item.title}}</div>
         <div>{{item.createTime}}</div>
       </li>
     </ul>
     <el-pagination
+      small
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage4"
       :page-size="15"
-      layout="prev, pager, next"
+      layout="prev, pager, next, jumper"
       :total="totalNews"
+      :page-count="pageCount"
       class="pagination">
     </el-pagination>
     <img src="../assets/jser_logo.svg" alt="powered by jser" class="jser-logo">
@@ -51,7 +53,9 @@ export default {
   name: 'Pagination',
   data() {
     return {
+      loadData: false,
       totalNews: 7000,
+      pageCount: 100,
       currentPage4: 1,
       input: '',
       insideBtn: false,
@@ -83,12 +87,17 @@ export default {
             label: '招生动态'
           }]
         }],
-        selector: ''
+        selector: '',
+        currentPath: '',
     }
   },
   methods: {
-    handleCurrentChange(current) {
-      
+    async handleCurrentChange(current) {
+      this.loadData = true;
+      const resdata = await axios.get(`${this.currentPath}?page=${current}`);
+      this.dataForCurrentPage = resdata.data.list;
+      this.totalNews = resdata.data.number;
+      this.loadData = false;
     },
     showSearchModel() {
       this.outsideBtn = false;
@@ -98,21 +107,22 @@ export default {
       this.insideBtn = false;
       this.outsideBtn = true
     },
-    async changeOption(value) {
+    changeOption(value) {
+      this.currentPath = this.selector;
       this.currentPage4 = 1;
-      const data = await axios.get(`${value}?page=1`);
-      this.dataForCurrentPage = data.data.list;
-      this.totalNews = data.data.number;
+    },
+    jumpToDetail(index) {
+      this.$router.push(`/detail/${this.currentPath.split('/').join('')}/${this.dataForCurrentPage[index]._id}`);
     }
   },
   async mounted() {
-    if (this.$store.currentSelector) {
-      this.currentPage4 = this.$store.CURRENT_PAGE();
-    }
     this.selector = this.options3[0].options[0].label;
+    this.currentPath = '/jwc/news';
+    this.loadData = true;
     const ajaxData = await axios.get(`/jwc/news?page=${this.currentPage4}`);
     this.dataForCurrentPage = ajaxData.data.list;
     this.totalNews = ajaxData.data.number;
+    this.loadData = false;
   }
 }
 </script>

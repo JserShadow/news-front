@@ -91,9 +91,9 @@ h5 {
   margin: 10px;
 }
 .news-list {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-around; */
   width: 80vw;
   height: 70vh;
   border-radius: 15px;
@@ -108,6 +108,8 @@ h5 {
 }
 .list-item {
   display: flex;
+  height: 4.5vh;
+  line-height: 4.5vh;
   justify-content: space-between;
   border-bottom: 1px dotted #aaa;
 }
@@ -174,4 +176,16 @@ h5 {
   z-index: 1000;
   /* position: absolute; */
 
+}
+.el-pagination__editor.el-input {
+  width: 30px;
+}
+.el-pagination__editor.el-input .el-input__inner {
+  height: 20px;
+}
+.el-pagination__jump {
+  margin-left: 0;
+}
+.el-pagination button, .el-pagination span:not([class*=suffix]) {
+  line-height: 0;
 }
