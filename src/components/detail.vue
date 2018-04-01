@@ -26,6 +26,7 @@ export default {
     this.loadData = true;
     const _id = this.$router.history.current.params.id;
     const detailClass = this.$router.history.current.params.class;
+    //需要添加去多余部分的方法
     const resdata = await axios.post('/getdetail', {
       class: detailClass,
       id: _id
