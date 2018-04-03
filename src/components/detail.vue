@@ -22,16 +22,40 @@ export default {
       loadData: false
     }
   },
+  methods: {
+    uselessKiller () {
+      let text = this.detailData.init.text
+      let imgs = this.detailData.init.imgs
+      let spliceArr = []
+      text.forEach(function (val, index) {
+        imgs.forEach(function (v, i) {
+          if (val === v.title) {
+            spliceArr.push(index)
+          }
+        })
+        if (val === '' || val === ' ') {
+          spliceArr.push(index)
+        }
+        if (index === text.length - 1) {
+          spliceArr.sort(function (a, b) {
+            return a < b ? 1 : -1
+          }).forEach(function (value) {
+            text.splice(value, 1)
+          })
+        }
+      })
+    }
+  },
   async mounted() {
     this.loadData = true;
     const _id = this.$router.history.current.params.id;
     const detailClass = this.$router.history.current.params.class;
-    //需要添加去多余部分的方法
     const resdata = await axios.post('/getdetail', {
       class: detailClass,
       id: _id
     });
     this.detailData = resdata.data[0];
+    this.uselessKiller();
     this.loadData = false;
   }
 }
