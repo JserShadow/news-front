@@ -107,9 +107,14 @@ export default {
       this.insideBtn = false;
       this.outsideBtn = true
     },
-    changeOption(value) {
+    async changeOption(value) {
+      this.loadData = true;
       this.currentPath = this.selector;
       this.currentPage4 = 1;
+      const res = await axios.get(`${this.currentPath}?page=1`);
+      this.dataForCurrentPage = res.data.list;
+      this.totalNews = res.data.number;
+      this.loadData = false;
     },
     jumpToDetail(index) {
       this.$router.push(`/detail/${this.currentPath.split('/').join('')}/${this.dataForCurrentPage[index]._id}`);
@@ -123,6 +128,10 @@ export default {
     this.dataForCurrentPage = ajaxData.data.list;
     this.totalNews = ajaxData.data.number;
     this.loadData = false;
+  },
+  beforeDestroy() {
+    localStorage.setItem('currentpage', this.currentPage4.toString());
+    localStorage.setItem('currentselector', this.currentPath);
   }
 }
 </script>

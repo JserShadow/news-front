@@ -150,7 +150,10 @@ h5 {
 .detail-title {
   margin: 0;
   padding-left: 10px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #000;
+  font-size: 1.2rem;
+  color: #000;
 }
 .detail-content {
   min-height: 30px;
@@ -161,6 +164,7 @@ h5 {
   word-break: break-all;
   overflow: hidden;
   border-bottom: 1px dotted #aaaaaa;
+  color: #777777;
 }
 .paper-underground {
   width: 100%;
