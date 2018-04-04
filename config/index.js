@@ -22,6 +22,10 @@ module.exports = {
       '/getdetail': {
         target: 'http://localhost:7001',
         changeOrigin: true
+      },
+      '/search': {
+        target: 'http://localhost:7001',
+        changeOrigin: true
       }
     },
 

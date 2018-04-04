@@ -62,30 +62,39 @@ export default {
       outsideBtn: true,
       dataForCurrentPage: '',
       selectorIndex: 0,
-      options3: [{
+      options3: [
+        {
           label: '教务资讯',
-          options: [{
-            value: '/jwc/news',
-            label: '教务新闻'
-          }, {
+          options: [
+          //   {
+          //   value: '/jwc/news',
+          //   label: '教务新闻'
+          // }, 
+          {
             value: '/jwc/notices',
             label: '教务通知'
-          }, {
+          }, 
+          {
             value: '/jwc/exam',
             label: '考务通知'
           }]
-        }, {
+        }, 
+        {
           label: '官网资讯',
-          options: [{
-            value: '/neau/news',
-            label: '东农资讯'
-          }, {
+          options: [
+          //   {
+          //   value: '/neau/news',
+          //   label: '东农资讯'
+          // }, 
+          {
             value: '/neau/notices',
             label: '通知公告'
-          }, {
-            value: '/neau/enrollment',
-            label: '招生动态'
-          }]
+          }, 
+          // {
+          //   value: '/neau/enrollment',
+          //   label: '招生动态'
+          // }
+          ]
         }],
         selector: '',
         currentPath: '',
@@ -105,7 +114,17 @@ export default {
     },
     searchBegin() {
       this.insideBtn = false;
-      this.outsideBtn = true
+      this.outsideBtn = true;
+      if (this.input !== '') {
+        this.$router.push(`/search/${this.input}`);
+      } else {
+        this.$alert('搜索内容不能为空','提示', {
+          confirmButtonText: '知道了',
+          callback: action => {
+            console.log(action);
+          }
+        })
+      }
     },
     async changeOption(value) {
       this.loadData = true;
@@ -121,17 +140,30 @@ export default {
     }
   },
   async mounted() {
+    console.log(localStorage);
+    if (localStorage.getItem('currentpage') && localStorage.getItem('currentselector') && localStorage.getItem('currentpath')) {
+      this.currentPath = localStorage.getItem('currentpath');
+      this.currentPage4 = parseInt(localStorage.getItem('currentpage'));
+      this.selector = localStorage.getItem('currentselector');
+      this.loadData = true;
+      const ajaxData = await axios.get(`${this.currentPath}?page=${this.currentPage4}`);
+      this.dataForCurrentPage = ajaxData.data.list;
+      this.totalNews = ajaxData.data.number;
+      this.loadData = false;
+      return;
+    }
     this.selector = this.options3[0].options[0].label;
-    this.currentPath = '/jwc/news';
+    this.currentPath = '/jwc/notices';
     this.loadData = true;
-    const ajaxData = await axios.get(`/jwc/news?page=${this.currentPage4}`);
+    const ajaxData = await axios.get(`/jwc/notices?page=${this.currentPage4}`);
     this.dataForCurrentPage = ajaxData.data.list;
     this.totalNews = ajaxData.data.number;
     this.loadData = false;
   },
   beforeDestroy() {
     localStorage.setItem('currentpage', this.currentPage4.toString());
-    localStorage.setItem('currentselector', this.currentPath);
+    localStorage.setItem('currentpath', this.currentPath);
+    localStorage.setItem('currentselector', this.selector);
   }
 }
 </script>

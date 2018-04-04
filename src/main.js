@@ -11,6 +11,13 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+router.beforeEach((to, from, next) => {
+  if (from.name === null) {
+    localStorage.clear();
+  }
+  next();
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

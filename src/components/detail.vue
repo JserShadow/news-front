@@ -6,7 +6,7 @@
     <div class="contents-container">
       <h3 class="detail-title">{{detailData.title}}</h3>
       <div class="content-position">
-        <p v-for="item in detailData.init.text" :key="item" class="detail-content">{{item}}</p>
+        <p v-for="item in contents" :key="item" class="detail-content">{{item}}</p>
       </div>
     </div>
     <img src="../assets/jser_logo.svg" alt="jser_logo" class="jser-logo jser-logo-detail">
@@ -19,7 +19,8 @@ export default {
   data() {
     return {
       detailData: '',
-      loadData: false
+      loadData: false,
+      contents: ''
     }
   },
   methods: {
@@ -54,6 +55,7 @@ export default {
       class: detailClass,
       id: _id
     });
+    this.contents = resdata.data[0].init.text;
     this.detailData = resdata.data[0];
     this.uselessKiller();
     this.loadData = false;
