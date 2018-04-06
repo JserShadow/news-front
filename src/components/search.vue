@@ -1,6 +1,13 @@
 <template>
   <div class="block">
     <div class="total">共查找到 <span style="color: #ff3333">{{totalCount}}</span> 条资讯</div>
+    <!-- 添加手风琴伸缩框
+    按类区分 -->
+    <div class="search-result-box">
+      <div>教务通知( <span style="color: #ff3333">{{Jwcnotice}}</span> )</div>
+      <div>考务通知( <span style="color: #ff3333">{{Jwcexam}}</span> )</div>
+      <div>通知公告( <span style="color: #ff3333">{{Neaunotices}}</span> )</div>
+    </div>
   </div>
 </template>
 
