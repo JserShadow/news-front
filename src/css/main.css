@@ -196,3 +196,19 @@ h5 {
 .el-message-box {
   width: 220px;
 }
+.el-collapse {
+  width: 95vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.el-collapse-item__header {
+  text-align: left;
+  padding-left: 10px;
+}
+.total {
+  height: 10vh;
+  text-align: left;
+  padding-left: 5vw;
+  padding-top: 5vh;
+}
