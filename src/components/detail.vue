@@ -9,7 +9,7 @@
         <p v-for="item in contents" :key="item" class="detail-content">{{item}}</p>
       </div>
     </div>
-    <img src="../assets/jser_logo.svg" alt="jser_logo" class="jser-logo jser-logo-detail">
+    <img src="../assets/jser_logo.svg" alt="jser_logo" class="jser-logo-detail">
   </div>
 </template>
 
@@ -25,8 +25,8 @@ export default {
   },
   methods: {
     uselessKiller () {
-      let text = this.detailData.init.text
-      let imgs = this.detailData.init.imgs
+      let text = this.detailData.content.text
+      let imgs = this.detailData.content.imgs
       let spliceArr = []
       text.forEach(function (val, index) {
         imgs.forEach(function (v, i) {
@@ -55,7 +55,7 @@ export default {
       class: detailClass,
       id: _id
     });
-    this.contents = resdata.data[0].init.text;
+    this.contents = resdata.data[0].content.text;
     this.detailData = resdata.data[0];
     this.uselessKiller();
     this.loadData = false;

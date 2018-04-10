@@ -37,7 +37,7 @@
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage4"
       :page-size="15"
-      layout="prev, pager, next, jumper"
+      layout="prev, pager, next"
       :total="totalNews"
       :page-count="pageCount"
       class="pagination">

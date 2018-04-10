@@ -41,7 +41,7 @@ h5 {
 }
 .select {
   position: absolute;
-  top: 3vh;
+  top: 6vw;
   right: 18vw;
   width: 28vw;
 }
@@ -49,7 +49,7 @@ h5 {
   padding: 12px;
   border-radius: 50%;
   position: absolute;
-  top: 3vh;
+  top: 6vw;
   right: 5vw;
 }
 .pagination {
@@ -82,20 +82,17 @@ h5 {
 .jser-logo {
   width: 80px;
   height: 40px;
-  position: relative;
-  top: 83vh;
-  /* transform: translate(-50%, -1%); */
+  position: absolute;
+  bottom: 1vw;
+  transform: translate(-50%, -1%);
 }
 .jser-logo-detail {
-  top: 0;
-  margin: 10px;
+  width: 80px;
+  height: 40px;
 }
 .news-list {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-around; */
   width: 80vw;
-  height: 70vh;
+  height: 130vw;
   border-radius: 15px;
   position: absolute;
   left: 50%;
@@ -108,8 +105,8 @@ h5 {
 }
 .list-item {
   display: flex;
-  height: 4.5vh;
-  line-height: 4.5vh;
+  height: 8.5vw;
+  line-height: 8.5vw;
   justify-content: space-between;
   border-bottom: 1px dotted #aaa;
 }
@@ -123,7 +120,7 @@ h5 {
 }
 .under-blur {
   width: 80vw;
-  height: 70vh;
+  height: 130vw;
   /* border-radius: 15px; */
   position: absolute;
   left: 50%;
@@ -137,13 +134,13 @@ h5 {
 }
 .text-header {
   width: 90vw;
-  height: 5vh;
+  height: 11vw;
 }
 .contents-container {
   position: relative;
   top: -1px;
   width: 90vw;
-  min-height: 80vh;
+  min-height: 145vw;
   background-color: rgb(223, 207, 182);
   margin: auto;
 }
@@ -178,8 +175,6 @@ h5 {
 }
 .content-position {
   z-index: 1000;
-  /* position: absolute; */
-
 }
 .el-pagination__editor.el-input {
   width: 30px;
@@ -207,8 +202,8 @@ h5 {
   padding-left: 10px;
 }
 .total {
-  height: 10vh;
+  height: 10vw;
   text-align: left;
   padding-left: 5vw;
-  padding-top: 5vh;
+  padding-top: 5vw;
 }
