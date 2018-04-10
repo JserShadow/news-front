@@ -5,7 +5,7 @@
 h3 {
   font-weight: normal;
   font-size: 2.5rem;
-  margin-top: 3px;
+  margin-top: 10px;
   text-align: left;
   margin-left: 8vw;
   color: #aaaaaa;
@@ -45,7 +45,7 @@ h5 {
 }
 .select {
   position: absolute;
-  top: 4vw;
+  top: 6vw;
   right: 18vw;
   width: 28vw;
 }
@@ -53,12 +53,12 @@ h5 {
   padding: 12px;
   border-radius: 50%;
   position: absolute;
-  top: 4vw;
+  top: 6vw;
   right: 5vw;
 }
 .pagination {
   position: absolute;
-  bottom: 1%;
+  bottom: 8%;
   left: 50%;
   transform: translateX(-50%)
 }
@@ -96,12 +96,12 @@ h5 {
 }
 .news-list {
   width: 80vw;
-  height: 100vw;
+  height: 110vw;
   border-radius: 15px;
   position: absolute;
   left: 50%;
-  top: 60%;
-  transform: translate(-50%, -60%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   list-style: none;
   background-image: linear-gradient(110deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
   padding: 10px;
@@ -109,8 +109,8 @@ h5 {
 }
 .list-item {
   display: flex;
-  height: 6.5vw;
-  line-height: 6.5vw;
+  height: 7.15vw;
+  line-height: 7.15vw;
   justify-content: space-between;
   border-bottom: 1px dotted #aaa;
 }
@@ -124,12 +124,12 @@ h5 {
 }
 .under-blur {
   width: 80vw;
-  height: 100vw;
+  height: 110vw;
   /* border-radius: 15px; */
   position: absolute;
   left: 50%;
-  top: 60%;
-  transform: translate(-50%, -60%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   background: white;
   filter: blur(1px);
   padding: 10px;
@@ -210,4 +210,7 @@ h5 {
   text-align: left;
   padding-left: 5vw;
   padding-top: 5vw;
+}
+.el-input__inner {
+  padding: 0 10px;
 }
