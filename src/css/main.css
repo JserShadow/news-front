@@ -5,7 +5,7 @@
 h3 {
   font-weight: normal;
   font-size: 2.5rem;
-  margin-top: 10px;
+  margin-top: 3px;
   text-align: left;
   margin-left: 8vw;
   color: #aaaaaa;
@@ -45,7 +45,7 @@ h5 {
 }
 .select {
   position: absolute;
-  top: 6vw;
+  top: 4vw;
   right: 18vw;
   width: 28vw;
 }
@@ -53,12 +53,12 @@ h5 {
   padding: 12px;
   border-radius: 50%;
   position: absolute;
-  top: 6vw;
+  top: 4vw;
   right: 5vw;
 }
 .pagination {
   position: absolute;
-  bottom: 8%;
+  bottom: 1%;
   left: 50%;
   transform: translateX(-50%)
 }
@@ -96,12 +96,12 @@ h5 {
 }
 .news-list {
   width: 80vw;
-  height: 130vw;
+  height: 100vw;
   border-radius: 15px;
   position: absolute;
   left: 50%;
-  top: 45%;
-  transform: translate(-50%, -45%);
+  top: 60%;
+  transform: translate(-50%, -60%);
   list-style: none;
   background-image: linear-gradient(110deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
   padding: 10px;
@@ -109,8 +109,8 @@ h5 {
 }
 .list-item {
   display: flex;
-  height: 8.5vw;
-  line-height: 8.5vw;
+  height: 6.5vw;
+  line-height: 6.5vw;
   justify-content: space-between;
   border-bottom: 1px dotted #aaa;
 }
@@ -124,12 +124,12 @@ h5 {
 }
 .under-blur {
   width: 80vw;
-  height: 130vw;
+  height: 100vw;
   /* border-radius: 15px; */
   position: absolute;
   left: 50%;
-  top: 45%;
-  transform: translate(-50%, -45%);
+  top: 60%;
+  transform: translate(-50%, -60%);
   background: white;
   filter: blur(1px);
   padding: 10px;

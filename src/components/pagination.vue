@@ -43,7 +43,7 @@
       :page-count="pageCount"
       class="pagination">
     </el-pagination>
-    <img src="../assets/jser_logo.svg" alt="powered by jser" class="jser-logo">
+    <!-- <img src="../assets/jser_logo.svg" alt="powered by jser" class="jser-logo"> -->
   </div>
 </template>
 
