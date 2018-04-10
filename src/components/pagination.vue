@@ -18,8 +18,9 @@
     </el-select>
     <transition name="search-block" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
       <div class="search" v-show="insideBtn">
-        <el-input v-model="input" placeholder="请输入感兴趣的内容" class="search-block"></el-input>
-        <el-button type="primary" icon="el-icon-search" class="search-btn" @click.native="searchBegin"></el-button>
+        <el-input v-model="input" placeholder="请输入感兴趣的内容" class="search-block" @keyup.enter.native="enterToSearch"></el-input>
+        <el-button type="primary" icon="el-icon-search" class="search-btn" @click.native="searchBegin" ></el-button>
+        <div class="clicktoblur" @click="loseFocus"></div>
       </div>
     </transition>
     <transition name="outter-search-btn" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutUp">
@@ -112,6 +113,10 @@ export default {
       this.outsideBtn = false;
       this.insideBtn = true;
     },
+    loseFocus() {
+      this.outsideBtn = true;
+      this.insideBtn = false;
+    },
     searchBegin() {
       this.insideBtn = false;
       this.outsideBtn = true;
@@ -125,6 +130,9 @@ export default {
           }
         })
       }
+    },
+    enterToSearch(event) {
+      this.searchBegin();
     },
     async changeOption(value) {
       this.loadData = true;
