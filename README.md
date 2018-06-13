@@ -27,7 +27,7 @@ src
 
 ### 本地开发
 ```bash
-git clone
+git clone  https://github.com/JserShadow/news-front.git
 cd news-front
 npm i
 npm run dev
