@@ -5,8 +5,11 @@
 
 > 项目预览地址:point_right: [点我预览](https://neau-news.xiaonei.io/index.html#/) (请在移动端查看)
 - 前端页面
+
 ![预览图片](src/assets/preview.png)
+
 - 和一些简单的小动画:blush:
+
 ![animation](src/assets/animation.gif)
 
 ### 目录结构
